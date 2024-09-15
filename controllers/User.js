@@ -20,7 +20,6 @@ const UserRegisteration=async (request, response) =>{
         }
         // Hash the password 
         const hashPassword=await bcrypt.hash(password,10)
-        
         // Create a new user 
         let newUser=new User({
             username,
