@@ -37,9 +37,9 @@ const getEmployeeById=async (request, response) => {
 
 const addEmployee=async (request, response) => {
     try{
-        const {name,email,designation,gender,mobile,course}=request.body 
+        const {name,email,designation,gender,mobile,course,image_url}=request.body 
         // Check if user already exists 
-        const user=await modelEmployee.findOne({email})
+        const user=await modelEmployee.find({email})
         if(user){
             return response.status(400).json({error_msg:"Employee already exists"})
         }
@@ -50,7 +50,8 @@ const addEmployee=async (request, response) => {
             designation,
             gender,
             mobile,
-            course
+            course,
+            image_url
         })
         const employee = await newEmployee.save()
         response.status(201).json({message:`Successfully created employee`})
@@ -67,8 +68,8 @@ const updateEmployee=async (request, response) => {
 
     try{
         const {employeeId}=request.params
-        const {name,email,designation,gender,mobile,course}=request.body 
-        const updatedEmployee=await modelEmployee.findByIdAndUpdate({_id:employeeId},{name,email,designation,gender,mobile,course}) 
+        const {name,email,designation,gender,mobile,course,image_url}=request.body 
+        const updatedEmployee=await modelEmployee.findByIdAndUpdate({_id:employeeId},{name,email,designation,gender,mobile,course,image_url}); 
         if(!updatedEmployee){
             return response.status(404).json({error:`Employee not found`})
         }

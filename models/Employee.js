@@ -26,6 +26,10 @@ const employeeSchema=new mongoose.Schema({
     gender:{
         type:String,
         required:true
+    },
+    image_url:{
+        type:String,
+        required:true
     }
 },
     timeStamp=true
