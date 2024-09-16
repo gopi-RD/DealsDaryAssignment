@@ -39,11 +39,6 @@ const addEmployee=async (request, response) => {
     try{
         const {name,email,designation,gender,mobile,course,image_url}=request.body 
         // Check if user already exists 
-        const user=await modelEmployee.find({email})
-        if(user){
-            return response.status(400).json({error_msg:"Employee already exists"})
-        }
-       
         const newEmployee=new modelEmployee({
             name,
             email,
