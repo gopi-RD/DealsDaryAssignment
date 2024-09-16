@@ -32,7 +32,7 @@ const employeeSchema=new mongoose.Schema({
         required:true
     }
 },
-    timeStamp=true
+    {timestamps:true}
 )
 
 
