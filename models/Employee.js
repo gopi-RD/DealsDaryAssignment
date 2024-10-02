@@ -33,15 +33,15 @@ const employeeSchema=new mongoose.Schema({
     },
     mca_status:{
         type:Boolean,
-        required:true
+        default:false
     },
     bca_status:{
         type:Boolean,
-        required:true
+        default:false
     },
     bsc_status:{
         type:Boolean,
-        required:true
+        default:false
     },
     created_at:{
         type:Date,

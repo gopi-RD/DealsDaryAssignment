@@ -37,7 +37,7 @@ const getEmployeeById=async (request, response) => {
 
 const addEmployee=async (request, response) => {
     try{
-        const {name,email,designation,gender,mobile,course,image_url}=request.body 
+        const {name,email,designation,gender,mobile,course,image_url,mca_status,bca_status,bsc_status}=request.body 
         // Check if user already exists 
         const newEmployee=new modelEmployee({
             name,
@@ -46,7 +46,10 @@ const addEmployee=async (request, response) => {
             gender,
             mobile,
             course,
-            image_url
+            image_url,
+            mca_status,
+            bca_status,
+            bsc_status,
         })
         const employee = await newEmployee.save()
         response.status(201).json({message:`Successfully created employee`})
@@ -63,8 +66,8 @@ const updateEmployee=async (request, response) => {
 
     try{
         const {employeeId}=request.params
-        const {name,email,designation,gender,mobile,course,image_url}=request.body 
-        const updatedEmployee=await modelEmployee.findByIdAndUpdate({_id:employeeId},{name,email,designation,gender,mobile,course,image_url}); 
+        const {name,email,designation,gender,mobile,course,image_url,mca_status,bca_status,bsc_status}=request.body 
+        const updatedEmployee=await modelEmployee.findByIdAndUpdate({_id:employeeId},{name,email,designation,gender,mobile,course,image_url,mca_status,bca_status,bsc_status}); 
         if(!updatedEmployee){
             return response.status(404).json({error:`Employee not found`})
         }
