@@ -30,10 +30,25 @@ const employeeSchema=new mongoose.Schema({
     image_url:{
         type:String,
         required:true
+    },
+    mca_status:{
+        type:Boolean,
+        default:false
+    },
+    bca_status:{
+        type:Boolean,
+        default:false
+    },
+    bsc_status:{
+        type:Boolean,
+        default:false
+    },
+    created_at:{
+        type:Date,
+        default:new Date().getDate()
     }
-},
-    {timestamps:true}
-)
+
+})
 
 
 const employee=mongoose.model("Employee",employeeSchema);
