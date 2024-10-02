@@ -45,7 +45,7 @@ const employeeSchema=new mongoose.Schema({
     },
     created_at:{
         type:Date,
-        default:new Date().getVarDate()
+        default:new Date()
     }
 
 })
